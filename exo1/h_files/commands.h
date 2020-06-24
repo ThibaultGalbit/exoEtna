@@ -1,7 +1,7 @@
 #ifndef _COMMANDS_H_
-#define _COMMANDS_H
+#define _COMMANDS_H_
 
-#include "character.h";
+#include "character.h"
 
 typedef struct s_command
 {
