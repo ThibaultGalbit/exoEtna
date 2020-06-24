@@ -1,0 +1,10 @@
+## ETNA RPG EN C
+
+- Pouvoir choisir une action
+    - Attacker
+    - Se guérir
+- Pouvoir modifier des données
+    - satatistique du joueur
+    - statitique de l'ennemie
+- Sauvegarder
+    - Stocker sous forme de fichier nos donnée et pouvoir les réutiliser
