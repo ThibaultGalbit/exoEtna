@@ -1,6 +1,8 @@
 #ifndef _HEADER_H_
 #define _HEADER_H
 
+#include "character.h";
+
 void Update();
 void Display();
 

@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "h_files/header.c"
-
-typedef struct s_command
-{
-    char *command;
-    void (*fct)();
-    t_command;
-}
+#include "h_files/header.h"
 
 
 int main() {
@@ -15,33 +8,17 @@ int main() {
     //Initialisation
     printf("%s\n", "Bonjour");
 
-    int hp = 50;
-    int atk = 50;
+    t_character player = {"Bobby", 50, 10};
+    t_character enemy = {"Villain", 50, 10};
 
-    t_command function_array[] = {
-        {"heal", &Heal},
-        {"attack", &Attack},
-        {0,0}
-    };
+    char user_input[10];
+    fgets(user_input, 10, stdin);
 
-    char input_user[10];
-    fgets(input_user, 10, stdin);
+    while (strcmp(user_input, "exit\n") != 0) {
 
-    while (strcmp(input_user, "exit\n") != 0) {
+       call_function(user_input, &player, &enemy);
 
-        printf("%s", input_user);
-
-        if (strcmp(input_user, "attack\n") == 0) {
-            //Attak
-            Attack();
-        } else if (strcmp(input_user, "heal\n") == 0) {
-            //Heal
-            Heal();
-        } else {
-            printf("wrong input\n");
-        }
-
-        fgets(input_user, 10, stdin);
+        fgets(user_input, 10, stdin);
     }
 
 

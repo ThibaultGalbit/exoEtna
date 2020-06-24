@@ -3,7 +3,8 @@ CC		=	gcc
 NAME	=	build/etna
 
 SRC		=	main.c				\
-			gameplay/gameplay.c
+			gameplay/gameplay.c	\
+			gameplay/commands.c	
 
 OBJ		=	$(SRC:.c=.o)
 
