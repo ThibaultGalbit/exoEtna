@@ -3,9 +3,10 @@
 
 typedef struct s_player
 {
-    char *name;
-    int hp;
-    int atk;
+    char    *name;
+    int     hp;
+    int     atk;
+    int     is_alive;
 } t_player;
 
 

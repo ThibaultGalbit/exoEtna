@@ -3,8 +3,10 @@
 
 typedef struct s_character {
     char    *name;
+    int     nb;
     int     hp;
     int     atk;
+    int     is_alive;
 } t_character;
 
 

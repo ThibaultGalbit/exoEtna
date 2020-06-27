@@ -11,20 +11,34 @@ void Display() {
 
 void Attack(t_character *attacking, t_character *target) {
 
-    //RANDOM POUR SE HEAL
+    //RANDOM POUR ATTACK
     //MIN = attack du jour - 20 %
     //MAX = attack du jour + 20 %
-    int random = attacking->atk * 0.8 + rand() % (int)(attacking->atk * 1.2 - attacking->atk * 0.8 + 1);
+    int damages = attacking->atk * 0.8 + rand() % (int)(attacking->atk * 1.2 - attacking->atk * 0.8 + 1);
 
-    printf("%s attack %s\n", attacking->name, target->name);
-    target->hp -= random;
+    printf("%s inflige %d à %s\n", attacking->name, damages, target->name); 
+    target->hp -= damages;
+     if (target->hp <= 0)
+     {
+         target->is_alive = 0;
+         target->hp = 0;
+     }
     printf("Les HPs de %s sont réduit de %d\n", target->name, target->hp);
 }
 void Heal(t_character *healing) {
 
-    int random = healing->atk * 0.8 + rand() % (int)(healing->atk * 1.2 - healing->atk * 0.8 + 1);
+    //RANDOM POUR SE HEAL
+    int base_heal = 20;
+    int healtValue = base_heal * 0.8 + rand() % (int)(base_heal * 1.2 - base_heal * 0.8 + 1);
 
-    printf("%s se heal\n", healing->name);
-    healing->hp += random;
-    printf("Les HP de %s sont maintenant a : %d\n", healing->name, healing->hp);
+    healing->hp += healtValue;
+    
+    printf("%s se heal de %d PV\n", healing->name, healtValue);
+}
+
+void enemy_turn(t_character *player, t_character *enemy) {
+    if (enemy->is_alive == 1)
+    {
+        Attack(enemy, player);
+    }
 }
